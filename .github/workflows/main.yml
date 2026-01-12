@@ -30,7 +30,7 @@ jobs:
       run: |
         ssh -o StrictHostKeyChecking=no ${{ secrets.EC2_USER }}@${{ secrets.EC2_HOST }} << 'EOF'
           #sudo su root
-          cd /home/ubuntu/test || { echo "Directory not found"; exit 1; }
+          cd /home/ubuntu/test/Python-Flask || { echo "Directory not found"; exit 1; }
           sudo docker build -t flask-app .
           sudo docker stop flask-app-container || true
           sudo docker rm flask-app-container || true
